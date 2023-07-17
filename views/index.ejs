@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/style.css" rel="stylesheet" >
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="current-info">
+
+        <div class="date-container">
+            <div class="time" id="time">
+                <%= date.getHours() %>:<%= date.getMinutes() %><span id="am-pm"></span>
+            </div>
+            <div class="day" id="date">
+                <%= date.toDateString() %>
+            </div>
+
+            <div class="others" id="current-weather-items">
+                <div class="weather-item">
+                    <div>Temperature</div>
+                    <div><%= realTimeData.data.values.temperature %></div>
+                </div>
+                <div class="weather-item">
+                    <div>Humidity</div>
+                    <div><%= realTimeData.data.values.humidity %></div>
+                </div>
+                <div class="weather-item">
+                    <div>Precipitation Probablity</div>
+                    <div><%= realTimeData.data.values.precipitationProbability %></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="place-container">
+            <div class="time-zone" id="time-zone">Asia/Mumbai</div>
+            <div id="country" class="country">IN</div>
+        </div>
+        </div>
+
+        
+        </div>
+    </div>
+    <div class="future-forecast">
+        <div class="today" id="current-temp">
+            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+            <div class="others">
+                <div class="day">Monday</div>
+                <div class="temp">Night- 29&#176; C</div>
+                <div class="temp">Day- 34&#176; C</div>
+            </div>          
+        </div>
+        <div class="weather-forecast" id="weather-forecast">
+            <div class="weather-forecast-item">
+                <div class="day">Tues</div>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night- 29&#176; C</div>
+                <div class="temp">Day- 34&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Wed</div>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night- 29&#176; C</div>
+                <div class="temp">Day- 34&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Thurs</div>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night- 29&#176; C</div>
+                <div class="temp">Day- 34&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Fri</div>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night- 29&#176; C</div>
+                <div class="temp">Day- 34&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Sat</div>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night- 29&#176; C</div>
+                <div class="temp">Day- 34&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Sun</div>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night- 29&#176; C</div>
+                <div class="temp">Day- 34&#176; C</div>
+            </div>
+        </div>
+    
+</body>
+</html>
