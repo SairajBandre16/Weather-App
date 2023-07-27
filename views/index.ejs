@@ -44,51 +44,35 @@
         </div>
     </div>
     <div class="future-forecast">
-        <div class="today" id="current-temp">
+        <!-- <div class="today" id="current-temp">
             <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
             <div class="others">
-                <div class="day">Monday</div>
+                <div class="day"><% date[Date(forecastData[0].timelines.daily[0].time.toDateString).getDay] %></div>
                 <div class="temp">Night- <%= Math.floor(forecastData[0].timelines.daily[0].values.temperatureMin)%>&#176; C</div>
                 <div class="temp">Day- <%= Math.floor(forecastData[0].timelines.daily[0].values.temperatureMax)%>&#176; C</div>
             </div>          
-        </div>
+        </div> -->
         <div class="weather-forecast" id="weather-forecast">
-            <div class="weather-forecast-item">
-                <div class="day">Tues</div>
-                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night- <%= Math.floor(forecastData[0].timelines.daily[1].values.temperatureMin)%>&#176; C</div>
-                <div class="temp">Day- <%= Math.floor(forecastData[0].timelines.daily[1].values.temperatureMax)%>&#176; C</div>
-            </div>
-            <div class="weather-forecast-item">
-                <div class="day">Wed</div>
-                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night- <%= Math.floor(forecastData[0].timelines.daily[2].values.temperatureMin)%>&#176; C</div>
-                <div class="temp">Day- <%= Math.floor(forecastData[0].timelines.daily[2].values.temperatureMax)%>&#176; C</div>
-            </div>
-            <div class="weather-forecast-item">
-                <div class="day">Thurs</div>
-                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night- <%= Math.floor(forecastData[0].timelines.daily[3].values.temperatureMin)%>&#176; C</div>
-                <div class="temp">Day- <%= Math.floor(forecastData[0].timelines.daily[3].values.temperatureMax)%>&#176; C</div>
-            </div>
-            <div class="weather-forecast-item">
-                <div class="day">Fri</div>
-                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night- <%= Math.floor(forecastData[0].timelines.daily[4].values.temperatureMin)%>&#176; C</div>
-                <div class="temp">Day- <%= Math.floor(forecastData[0].timelines.daily[4].values.temperatureMax)%>&#176; C</div>
-            </div>
-            <!-- <div class="weather-forecast-item">
-                <div class="day">Sat</div>
-                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night- <%= Math.floor(forecastData[0].timelines.daily[0].values.temperatureMin)%>&#176; C</div>
-                <div class="temp">Day- <%= Math.floor(forecastData[0].timelines.daily[0].values.temperatureMin)%>&#176; C</div>
-            </div>
-            <div class="weather-forecast-item">
-                <div class="day">Sun</div>
-                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night- <%= Math.floor(forecastData[0].timelines.daily[0].values.temperatureMin)%>&#176; C</div>
-                <div class="temp">Day- <%= Math.floor(forecastData[0].timelines.daily[0].values.temperatureMin)%>&#176; C</div>
-            </div> -->
+            <% forecastData[0].timelines.daily.forEach(day => { %>
+                <% const DAY = new Date((day.time)) %>
+                <% if(DAY.getDay() === date.getDay()) {%>
+                    <div class="today" id="current-temp">
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                        <div class="others">
+                            <div class="day"><%= DAY.toLocaleString('en-US', { weekday: 'short' }) %></div>
+                            <div class="temp">Night- <%= Math.floor(forecastData[0].timelines.daily[0].values.temperatureMin)%>&#176; C</div>
+                            <div class="temp">Day- <%= Math.floor(forecastData[0].timelines.daily[0].values.temperatureMax)%>&#176; C</div>
+                        </div>          
+                    </div>
+                <% } else {%>    
+                    <div class="weather-forecast-item">
+                    <div class="day"><%= DAY.toLocaleString('en-US', { weekday: 'short' }) %></div>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temp">Night- <%= Math.floor(day.values.temperatureMin)%>&#176; C</div>
+                    <div class="temp">Day- <%= Math.floor(day.values.temperatureMax)%>&#176; C</div>
+                </div>
+                <% } %>
+            <% }); %>
         </div>
     
 </body>
