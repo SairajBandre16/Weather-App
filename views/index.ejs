@@ -39,19 +39,9 @@
             <div id="country" class="country">IN</div>
         </div>
         </div>
-
-        
         </div>
     </div>
     <div class="future-forecast">
-        <!-- <div class="today" id="current-temp">
-            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-            <div class="others">
-                <div class="day"><% date[Date(forecastData[0].timelines.daily[0].time.toDateString).getDay] %></div>
-                <div class="temp">Night- <%= Math.floor(forecastData[0].timelines.daily[0].values.temperatureMin)%>&#176; C</div>
-                <div class="temp">Day- <%= Math.floor(forecastData[0].timelines.daily[0].values.temperatureMax)%>&#176; C</div>
-            </div>          
-        </div> -->
         <div class="weather-forecast" id="weather-forecast">
             <% forecastData[0].timelines.daily.forEach(day => { %>
                 <% const DAY = new Date((day.time)) %>
